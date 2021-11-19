@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+        <script>
+            
+            let site = prompt("이동 하려는 사이트는?\n(구글( 또는 google), 네이버( 또는 naver), 다음(또는 daum) 중 하나 입력");
+            let url = "";
+
+            if (site !== "구글" && site != "네이버도" && site != "다음도"){
+                switch (site){
+                case "구글":
+                case "google":
+                    url = "www.google.com";
+                    break;
+                case "네이버" :
+                case "naver":
+                    url = "www.naver.com";
+                    break;
+                case "다음" :
+                case "daum":
+                    url = "www.daum.com";
+                    break;
+            } 
+            
+            document.write("<a href=\"https://" + url + "\">" + site + "으(로) 이동</a>");
+            
+            } else{
+                alert("다시 입력하세요.");
+            } 
+        </script>
+</body>
+</html>

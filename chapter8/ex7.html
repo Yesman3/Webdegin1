@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+
+
+        // 함수 하나를 전달받아 하나씩 증가하는 함수를 만드세요
+
+        function sum(num){
+            num = num + 1;
+
+            document.write(num);
+        }
+
+        let val = 3;
+
+        console.log("val =" + val + "<br>");
+
+        // 인자로 변수를 넣으면 변수에 어떤 변화가 생긴다 라고 생각을 하지만
+        // 인자로 변수를 넣어도 변수에 들어있느 값을 복사해서 가지고 올라가기 때문에
+        // 함수의 동작이 변수에 영향을 미치지 않음
+
+        sum(val);
+
+        console.log("val =" + val + "<br>");
+    </script>
+</body>
+</html>

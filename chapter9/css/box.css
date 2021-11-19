@@ -1,0 +1,32 @@
+div{
+    width: 1000px;
+    margin: 50px auto;
+}
+.box1{
+    width: 500px;
+    height: 700px;
+    background-color: orange;
+    
+}
+.box2{
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+}
+.box3{
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+}
+
+.box4{
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+}
+
+.box5{
+    width: 100px;
+    height: 100px;
+    background-color: orangered;
+}

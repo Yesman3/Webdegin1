@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+    <link rel="stylesheet" href="css/nameList.css">
+</head>
+<body>
+
+    <div id="container">
+        <h1>참가 신청</h1>
+
+
+        <div>
+            <input type="text" id="username" placeholder="이름">
+            <button type="button" onclick="newRegister()">신청</button>
+        </div>
+
+        <hr>
+        <div id="nameList"></div>
+    </div>
+    <script>
+        // 신청 버튼을 눌렀을 때
+        // 참가자의 이름이 입력되어있지 않다면
+        // alert등으로 "이름을 입력하세요!" 를 출력
+
+        function newRegister(){
+            // insertBefore() -> 기준이 되는 자식 태그 앞에 새로운 자식 태그를 추가하는 메서드
+            // var tagNode = document.createElement("p");
+            // var texrNode = document.createTextNode("고영희");
+            // tagNode.appendChild(textNode);
+
+            // let nameListTag1 = document.querySelector("#nameList");
+            // // 아이디가 nameList 인 태그에 자식 태그를 추가하는데
+            // // 아이디가 nameList 인 태그에 자식 태그 중에서 첫 번째 자식 태그 앞에 추가함
+            // insertBefore() -> 이미 추가되어있는 자식 태그를 다시 추가하는 경우, 이미 추가된 태그의 위치가 이동
+            // 태그의 위치를 바꿀 때도 사용함
+            // nameListTag1.insertBefore(tagNode, nameListTag1.childNodes[0]);
+
+
+            var userNameTag = document.querySelector("#username"); 
+            var userName = userNameTag.value;
+
+            if(userName == ""){
+                alert("이름을 입력하세요");
+            };
+
+        
+            var newP = document.createElement("p");
+
+            var userNameTextNode = document.createTextNode(userName);
+
+            newP.appendChild(userNameTextNode);
+
+            var nameListTag = document.querySelector("#nameList");
+           
+            nameListTag.appendChild(newP);
+
+            userNameTag.value = "";
+
+
+        }
+        
+
+    </script>
+
+
+</body>
+</html>

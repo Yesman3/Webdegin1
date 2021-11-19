@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+        // 정렬 -> 어떤 기준에 맞게 데이터를 순서대로 나열하는 것
+        // 1. 오름차순 정렬 (작은것부터 시작해서 큰것으로 끝) = ASC
+        // 2. 내림차순 정렬 (큰것부터 시작해서 작은것으로 끝) = DESC
+        let arr1 = [1,2,3,4,5,8,6,9,7];
+
+        console.log("정렬 전 =" + arr1);
+
+        // sort() -> 인자가 필요없는 메서드
+        //           대상 배열 내 데이터들을 어름차순 정렬해주는 메서드
+        // arr1.sort();
+
+       
+        for(let i=1; i<arr1.length; i++) {
+            let lastIndex = arr1.length - i;
+
+            for(let j =0; j<=lastIndex; j++) {
+                if(arr1[j] >arr1[j+1]) {
+                    let temp = arr1[j];
+                    arr1[j] = arr1[j+1];
+                    arr1[j+1] = temp;
+                }                                     
+            }
+        }
+
+        console.log("정렬 후 =" + arr1);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+    <script src="fucn1.js"></script>
+    <script src="fucn2.js"></script>
+</head>
+<body>
+
+    <script>
+        // 같은 이름의 함수가 선언되어있을 때는
+        // 마지막에  선언한 함수만 살아남음
+        // 이제부터 html 태그는 html 파일에
+        // css코드는 css파일에, javascript 코드는 js 파일에
+        // 분할에서 작업을 하다보면 js 파일에 같은 이름의 함수를 선언하는 경우가
+        // 빈번히 발생함, 함수의 이름이 중복되지 않게  함수의 이름은 의미있는 이름으로
+        // 함수를 호출했을 때 수행하는 동작을 내포하고 있어야함
+
+
+        // 문제) 1 ~ 10 사이의 짝수의 합을 함수를 이용하여 구하고
+        // 그 합의 평균을 구하여라
+
+        function math(num){
+            let total = 0;
+           
+            for(let i=0; i<num.length; i++){
+                if(i % 2 == 0){
+                    total = total + num[i];  
+                }
+            }
+          
+            let math = total / num.length;
+            return math;
+        }
+
+        let num = [1,2,3,4,5,6,7,8,9,10];
+
+       let count = math(num);
+
+       document.write("count =" + count);
+
+    </script>
+</body>
+</html>

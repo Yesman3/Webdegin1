@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+
+        let day = birthday.getDay();
+
+        let week = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+
+        document.write(week[day]);
+
+
+        // 테어난 날짜의 요일을 출력하세요.
+
+        // let birthdays = new Date(1995,2,14);
+        // let Day =birthdays.getDay() ;
+
+
+        // if ( Day == 0){document.write("일요일"); } 
+        // else if (Day == 1){document.write("월요일");} 
+        // else if (Day == 2){document.write("화요일");} 
+        // else if (Day == 3){document.write("수요일");} 
+        // else if (Day == 4){document.write("목요일");} 
+        // else if (Day == 5){document.write("금요일");} 
+        // else if (Day == 6){ document.write("토요일"); }
+
+        // let today = new Date();
+        // let nowMonth = today.getMonth();    // getMonth메서드로 월 을 가졌으면 -1이 된 월이 가져와진다
+        // let nowDate = today.getDate();   // getDate() -> 일을 가져오는 메서드
+        // let nowDay = today.getDay();     // getDay() -> 요일을 가져오는 메서드 (0 : 일요일 ~ 6 : 토요일)
+
+        // document.write("<h1>오늘 날짜 정보</h1>");
+        // document.write("<p>현재 월 :" + nowMonth + "</p>");
+        // document.write("<p>현재 일 :" + nowDate + "</p>");
+        // document.write("<p>현재 요일 :" + nowDay + "</p>");
+
+        // let olympics = new Date(2021, 6, 23);
+        // let olympicMonth = olympics.getMonth() + 1;
+        // let olympicDate = olympics.getDate();
+        // let olympicDay = olumpics.getDay();
+
+        // document.write("<h1>올림픽  날짜 정보</h1>");
+        // document.write("<p> 올림픽 월 :" + olympicMonth + "</p>");
+        // document.write("<p> 올림픽 일 :" + olympicDate + "</p>");
+        // document.write("<p> 올림픽 요일 :" + olympicDay + "</p>");
+
+
+        // 객체 -> 데이터와 같은 공간에 들어있는 데이터를 핸들링 할 수 있도록 기능이
+        //         같이 들어있는 형태
+        //         객체 안에는 데이터와 메서드가 들어있어서 덩치가 너무 크니까
+        //         변수가 직접 갖고 있을 수 없음
+        //         그래서 변수는 객체가 저장된 메모리 주소를 갖고 있는 것
+
+        // 특별하게 new 연산자를 사용하지 않아도 배열 문자열을 만들 수 있도록 해준 것
+        // let arr = new Array();
+        // let str = new String();
+        //    =
+        // let arr = [];
+        // let str = "";
+
+        // Date 객체를 만들 때 여닫느 소괄호 안에 아무것도 넣지 않으면 현재 날짜 정보를 갖고 있는
+        // Date 객체가 생성된다.
+
+        // let date = new Date();
+
+        // // Date 객체를 만들 때 여닫는 소괄호 안에 세 개의 숫자를 넣을 수 있음
+        // // 첫 번째 인자 -> 연도
+        // // 두 번째 인자 -> 월 (자바스크립트는 월이 0 부터 시작하기 때문에 0 ~ 11 사이의 수를 넣어야함)
+        // // 세 번째 인자 -> 일
+        // // Date 객체를 만들 때 인자를 3개 넣으면 해당 연, 월, 일 정보를 갖고 있는
+        // // 날짜 정보가 생성된다
+
+        // let date2 = new Date(2021, 0, 1);
+
+        // console.log(date);
+        // console.log(date.toLocaleString());
+
+        // console.log(date2);
+        // console.log(date2.toLocaleString());
+        
+
+
+
+    </script>
+</body>
+</html>

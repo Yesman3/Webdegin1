@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제하기</title>
+    <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+
+    <div id="container">
+        <form action="" name="order">
+            <fieldset>
+
+                <legend>주문정보</legend>
+                <ul>
+                    <li>
+                        <label class="field" for="billingName">이름 :</label>
+                        <input type="text" class="input-box" id="billingName"name="billingName">
+                    </li>
+                    <li>
+                        <label class="field" for="billingTel" >연락처 :</label>
+                        <input type="text" class="input-box" id="billingTel"name="billingTel">
+                    </li>
+                    <li>
+                        <label class="field" for="billingAddr">주소 :</label>
+                        <input type="text" class="input-box" id="billingAddr"name="billingAddr">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+
+        <form action="" name="ship">
+            <fieldset>
+
+                <legend>배송정보</legend>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="shippingInfo" id="shippingInfo" onclick="fillInfo()">
+                        <label for="shippingInfo" class="check">주문 정보와 배송 정보가 같습니다.</label>
+                    </li>
+                    <li>
+                        <label class="field" for="shippingName">이름 :</label>
+                        <input type="text" class="input-box" id="shippingName"name="shippingName">
+                    </li>
+                    <li>
+                        <label class="field" for="shippingTel">연락처 :</label>
+                        <input type="text" class="input-box" id="shippingTel"name="shippingTel">
+                    </li>
+                    <li>
+                        <label class="field" for="shippingAddr">주소 :</label>
+                        <input type="text" class="input-box" id="shippingAddr"name="shippingAddr">
+                    </li>
+                </ul>
+            </fieldset>
+
+            <button type="submit" class="order" onclick="pay(event)" >결제하기</button>
+
+        </form>
+    </div>
+
+    <script>
+
+        // 주문정보에 있는 텍스트들이 체크박스를 눌렀을때 베송정보에도 똑같이 나오게 하세요.
+
+
+        function fillInfo(){
+
+            let checkbox = document.forms[1].elements[1]; //form 태그의 1번 인덱스,에 있는 1번 요소
+            //  checkbox.checked -? checkbox의 check 여부를 알 수 있는 맴버 변수
+            //  checkbox는 체그가 됬다 / 되지 않았다 , 두 가지 상태 밖에 없음
+            //  두 가지 상태만 있을 떄는 주로 boolean으로 표현
+            //  true ->  체크가 됬다
+            //  false -> 체크 되지 않았다
+            console.log(checkbox.checked);
+
+
+
+            let orderForm = document.forms[0]; // name = order인 form 태그 첫 번째 것을 가져올것이야
+            let billingNameTag = orderForm.elements[1]; // 
+            let billingTelTag = orderForm.elements[2];
+            let billingAddrTag = orderForm.elements[3];
+
+
+            let billingName = billingNameTag.value;
+            let billingTel = billingTelTag.value;
+            let billingAddr = billingAddrTag.value;
+
+
+            // 주문 정보에 입력한 이름,연락처,주소를 가져왔으니 
+            // 배송정보에도 출력되도록하세요.
+
+            let shipForm = document.forms[1]; // name = ship인 form 태그 두 번째 것을 가져올 것이야
+            let shippingNameTag = shipForm.elements[2];
+            let shippingTelTag = shipForm.elements[3];
+            let shippingAddrTag = shipForm.elements[4];
+
+
+            if(checkbox.checked == true){
+                shippingNameTag.value = billingName; 
+                shippingTelTag.value = billingTel;
+                shippingAddrTag.value = billingAddr;
+            } else {
+                shippingNameTag.value = "";
+                shippingTelTag.value = "";
+                shippingAddrTag.value = "";
+            }
+
+        }
+
+
+
+
+        // document.forms -> 현재 페이지의 form들에 접근
+        // forms 인것처럼 form들을 배열에 담아서 보관
+
+        let formTagList = document.forms;
+        let firstForm = formTagList[0];
+        let secondForm = formTagList[1];
+        
+        // firstForm.elements -> 폼 내 요소들이 들어있는 맴버변수
+        let elementsInFirstForm = firstForm.elements;
+        let elementsInSecondForm = secondForm.elements;
+
+        let element1_1 = elementsInFirstForm[0];
+        let element2_1 = elementsInSecondForm[0];
+        
+
+        console.log(element1_1);
+        console.log(element2_1);
+
+
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        //  사용자가 연락처에 입력한 뒤 결제하기를 눌렀을때 경고창이 뜨도록 하세요
+
+
+        function pay(e){
+            e.preventDefault();
+
+            // 첫번째 폼 태그 안에있는 3번째의 리스트르 뽑아올것이야
+            let formTagLists = document.forms[0].elements[2];
+
+            // 위에서 연락처에 접근한 formTaglists의 value값을 넣어주면 사용자가 썼던것을 출력할수 있다.
+            let firstForm = formTagLists.value;
+
+            alert(firstForm);
+        }
+
+
+        
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // form 속성값을 불러올 것임
+
+        // 페이지 안에 form이 여러개 있을 때 
+        // form 을 구분하기 위해서 name 속성을 사용
+
+        // form 태그에 name 속성으로 접근하려면
+        // document.form태그 name 속성값을 써주면 된다.
+
+        // let shipForm = document.ship;     
+        // let shipForm = document,forms["ship"];
+        // documetn.forms["ship"] -> 현재 페이지에서 이름이 ship인 form에 접근
+        // let shipForm = document.forms["ship"];
+
+        // // document.forms["ship"].elements -> 현재 페이지에서 이름이 ship인 form에 접근해 form의 입력 요소들에 접근
+        // // document.forms["ship"].elements["shippingName"]; -> 이름이 shippingName 인 입력 요소에 접근
+        // let shippingName = document.forms["ship"].elements["shippingName"];
+
+        // console.log(shipForm);
+
+        // console.log(shippingName);
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+        // 결제하기를 눌렀을때 사용자의 연락처가 출력되도록 입력하라
+
+        // function pay(e) {
+        //     e.preventDefault();
+
+        //     let callTag = document.forms["order"].elements["billingTel"];
+            
+        //     let calltell = callTag.value; // 입력요소에 value 로 접근을 하면 사용자가 입력한 값에 접근을 할 수 있음
+
+        //     alert("주문정보의 연락처는 " + calltell + "입니다");
+
+        //     return false;
+            
+        // }
+
+        
+
+
+        
+        
+
+    </script>
+</body>
+</html>

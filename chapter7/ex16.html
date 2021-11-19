@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+        let arr1 = [1,2,6,5,3,1,8,9];
+
+        console.log("arr1 =" + arr1);
+
+        // reverse() -> 인자가 필요 없는 메서드
+        //              대상 배열 내 데이터의 배치를 역으로 바꿔주는 메서드
+        arr1.reverse();
+
+       
+
+        let arr2 = [];
+
+        // arr1[0] = arr2[7];
+        // arr1[1] = arr2[6];
+        // arr1[2] = arr2[5];
+        // arr1[3] = arr2[4];
+        // arr1[4] = arr2[3];
+        // arr1[5] = arr2[2];
+        // arr1[6] = arr2[1];
+        // arr1[7] = arr2[0];
+
+        // for(let i=0; i<arr1.length; i++){
+        //     let arr1Index = (arr1.length - 1) - i;
+
+        //     arr2[i] = arr1[arr1.length];
+        // }
+
+        for(let i=arr1.length-1; i>=0; i--){
+            let tempArrIndex = arr1.length - i - 1;
+
+            arr2[tempArrIndex] = arr1[i];
+        }
+
+        arr1 = arr2;
+
+        console.log("arr1 =" + arr1);
+
+
+
+
+
+    </script>
+</body>
+</html>

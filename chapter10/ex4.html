@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+    <link rel="stylesheet" href="css/getForm.css">
+</head>
+<body>
+
+    <div id="container">
+        <h1>수강신천</h1>
+        <form action="#" name="textForm">
+            <fieldset>
+                <legend>신청인</legend>
+                <ul>
+                    <li>
+                        <label for="userName" class="reg">이름</label>
+                        <input type="text" name="userName" id="userName">
+                    </li>
+                    <li>
+                        <label for="class" class="reg">학과</label>
+                        <select id="major" onclick="displaySekect()">
+                            <option>----- 학과 선택</option>
+                            <option value="archi">건축공학과</option>
+                            <option value="mechanic">기계공학과</option>
+                            <option value="indust">산업공학과</option>
+                            <option value="elec">전기전자공학과</option>
+                            <option value="computer">컴퓨터공학과</option>
+                            <option value="chemical">화학공학과</option>
+                        </select>
+
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>신청 과목</legend>
+                <p>이 달에 신청할 과목을 선택하세요.</p>
+                <label ><input type="radio" name="subject" value="speaking" onclick="clickSubjet()">회화</label>
+                <label ><input type="radio" name="subject" value="grammar" onclick="clickSubjet()">문법</label>
+                <label ><input type="radio" name="subject" value="writing" onclick="clickSubjet()">작문</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>메일링</legend>
+                <p>메일로 받고 싶은 뉴스 주제를 선택하세요.</p>
+                <label ><input type="checkbox" name="mailing" value="new" onclick="clickMailing()">해외 단신</label>
+                <label ><input type="checkbox" name="mailing" value="dialog" onclick="clickMailing()" >5분 회화</label>
+                <label ><input type="checkbox" name="mailing" value="pops" onclick="clickMailing()">모닝 팝스</label>
+            </fieldset>
+
+        </form>
+    </div>
+</body>
+
+    <script>
+
+
+        function clickMailing(){
+            let mailingList = document.textForm.mailing;
+
+            let mailingSubjectList = ["해외단신", "5분회화", "모닝팝스"];
+
+            // 현재 클릭한 메일링 뉴스 주제들
+            let mailing = "";
+            // 현재 클릭한 메일링 뉴스 주제의 개수
+            let count = 0;
+        
+            
+            for(let i=0; i<mailingList.length; i++){
+                // n번째 체크 박스
+                let nthMailing = mailingList[i];
+
+                // n번째 체크박스를 체크했다면
+                if(nthMailing.checked){
+                    // n번째 체크박스에 맞는 메일링 뉴스 주제를 저장
+                    mailing = mailing + mailingSubjectList[i] + ",";
+                // 메일링 개수를 출력하세요.
+                    count++;
+
+                }
+            }
+            alert("현재" + conunt + "개 체크하였음 >>" + mailing);
+        }
+
+     
+            
+            
+            
+
+
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        function clickSubjet(){
+
+            //반복문을 사용해서 코드를 짜보세요.
+
+            for(let i=0; i<subjets.length; i++){
+            let respone = subjets[i];
+
+            // n번쨰 라디오 버튼을 클릭했다면 
+            if(respone.checked){
+                 // subjectList의 n번째 과목명을 출력한다.
+                alert(subjets[i]);
+            }
+          }
+        }
+            // 클릭한 과목에 맞는 과목명 출력
+            // let subjects = document.textForm.subject;
+
+            // let first = subjects[0];
+            // let second = subjects[1];
+            // let third = subjects[2];
+
+            // if(first.checked){
+            //     alert("회화");
+            // } else if (second.checked){
+            //     alert("문법");
+            // } else{
+            //     alert("작문");
+            // }
+        
+
+        
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+        function displaySekect(){
+
+        let options =document.textForm.major.options;
+
+        let selectedIndex =  options.selectedIndex;
+
+        let selectedOption = options[selectedIndex];
+
+        console.log(selectedOption.innerText);
+            
+        }
+
+
+
+
+
+
+        let radio = document.testForm.subject; //이름이 subject인 라디오 버튼에 접근
+        console.log(radio);
+        
+        for(let i = 0; i<radio.length; i++){
+            console.log(radio[i]);
+        }
+
+        for(let i = 0; i<radio.length; i++) {
+            console.log(radio[i].value);
+        }
+
+
+
+        let select = document.querySelector("#major")
+        // select 태그 안에 들어있는 option 태그들에 접근
+
+        let options = select.options;
+
+        for(let i=0; i<options.length; i++){
+            console.log(options[i]);
+        }
+
+        // 옵션 태그들이 갖고 있는 text를 출력하세요.
+
+        for(let i=0; i<options.length; i++){
+            console.log(options[i].innerText);
+        }
+        options[0].innerText; // 첫번쨰 태그에 접근
+
+        // 옵션 태그들의 value 속성을 출력하세요.
+    
+    </script>
+
+</html>

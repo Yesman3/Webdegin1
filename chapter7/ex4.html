@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+        // 철수의 국어,영어, 수학 점수를 하나의 배열에 저장   
+        // 사람 기준으로는 첫 번째, 두 번째, 세 번째 데이터라고 세지만
+        // 컴퓨터 기준으로는 0번 인덱스, 1번 인덱스, 2번 인덱스 데이터 라고 셈
+        //          0    1   2
+        let chal = [84, 62, 55];
+
+        console.log(chal);
+
+        let kor1 = chal[0];
+        let mat1 = chal[1];
+        let eng1 = chal[2];
+        let sum1 = kor1 + mat1 + eng1;
+        let avg1 = sum1 / 3;
+
+        chal[3] = sum1;
+        chal[4] = avg1;
+
+        console.log(chal);
+
+        // 영희의 국어,영어, 수학 점수를 하나의 배열에 저장
+        
+        let young = [93, 71, 80];
+
+        console.log(young);
+
+        let kor2 = young[0];
+        let mat2 = young[1];
+        let eng2 = young[2];
+        let sum2 = kor2 + mat2 + eng2;
+        let avg2 = sum2 / 3;
+
+        young[3] = sum2;
+        young[4] = avg2;
+
+        console.log(young);
+        // 길동의 국어,영어, 수학 점수를 하나의 배열에 저장
+        let gil = [52, 79,33];
+
+        let soo = [82, 69, 91];
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+    <input type="text" class="" name="id">
+    <input type="button" class="" name="pw" value="회원가입">
+
+
+    <script>
+      
+        // 아래의 val 변수의 0이 복사가 되어 아래에 들어가게 된다.
+        function func(val){
+            // 함수의 공간 안에서 num 변수가 만들어지고 1이 저장이 됨
+            let num = 1;
+            // 함수의 공간 안에서 num 변수인 1이 출력이된다.
+            console.log("num =" + num);
+        }
+        // 함수의 끝을 만나면 함수 안의 공간 num = 1 이 사라지고 
+        // 결국 num 변수 0 이 출력이 된다.
+        
+        let num =0;
+
+        func(num);
+
+        console.log("num =" + num);
+
+    </script>
+</body>
+</html>

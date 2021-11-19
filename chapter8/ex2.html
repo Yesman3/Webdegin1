@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+
+        // 문제) 함수안에 구구단 2단을 저장하고 구구한 2단을 출력하세요.
+
+        // let num = 2;
+
+        // function math(){
+        //     // 함수 안에서 선언한 변수가 아닌 변수를
+        //     // 함수에서 사용하면 프로그램이 거미줄ㄹ처럼 복잡해진다
+        //     // 함수 안에서 사용하는 변수는
+        //     // 함수 안에서 선언한 변수만 사용하도록 해야함
+        //     for(let i=1; i<=9; i++){
+        //         document.write(num + " * " + i + " =" + (num*i) + "<br>");
+        //     }
+        // }
+
+        // math();
+
+
+        //  위와 같이 함수 밖에있는 변수를 사용을 한다면 복잡해진다는 소리
+        //  ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        //  그래서 아래와 같이 함수 안에 변수를 넣어야한다
+
+        // function math(){
+            
+        //     let num = 2;
+
+        //     for(let i=1; i<=9; i++){
+        //         document.write(num + " * " + i + " =" + (num*i) + "<br>");
+        //     }
+        // }
+
+        // math();
+
+        // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+        // 만약 변수를 밖에놔둔다면 아래와 같이
+        // math라는 함수는 num = 2가 들어가겠고 plusNum이라는 함수를 지나 math를 출력했을때
+        // math는 num = 3으로 들어가게 되므로 복잡해 지기에 let num 이라는 변수는 math 함수 안에 넣어야한다.
+        
+
+        let num = 2;
+
+        function math(){
+            
+
+            for(let i=1; i<=9; i++){
+                document.write(num + " * " + i + " =" + (num*i) + "<br>");
+            }
+        }
+
+        function plusNum(){
+            num = num + 1;
+            document.write("num =" + num + "<br>");
+        }
+
+        math();
+
+        plusNum();
+
+        math();
+
+
+
+
+    </script>
+</body>
+</html>

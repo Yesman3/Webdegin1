@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+    <link rel="stylesheet" href="css/nameList.css">
+</head>
+<body>
+
+    <div id="container">
+        <h1>참가 신청</h1>
+
+
+        <div>
+            <input type="text" id="username" placeholder="이름">
+            <button type="button" onclick="newRegister()">신청</button>
+        </div>
+
+        <hr>
+        <div id="nameList"></div>
+    </div>
+    <script>
+        // 신청 버튼을 눌렀을 때
+        // 참가자의 이름이 입력되어있지 않다면
+        // alert등으로 "이름을 입력하세요!" 를 출력
+
+        function newRegister(){
+       
+
+
+            var userNameTag = document.querySelector("#username"); 
+            var userName = userNameTag.value;
+
+            if(userName == ""){
+                alert("이름을 입력하세요");
+            } else{
+                var up = document.createElement("span");
+                var down = document.createElement("span");
+                var remove = document.createElement("span");
+
+                var upText = document.createTextNode("🔺");
+                var downText = document.createTextNode("🔻");
+                var removeText = document.createTextNode("❌");
+
+                // createAttribute() -> 속성을 만드는 메서드
+                // var upAttr = document.createAttribute("class");
+                // var downAttr = document.createAttribute
+
+                // setAttribute() 메서드를 사용하면 태그에 속성을 쉽게 추가할 수 있음
+                up.setAttribute("class", "btn");
+                down.setAttribute("class", "btn");
+                remove.setAttribute("class","btn");
+
+                // 태그를 자바스크립트로 추가할 떄 태그의 이벤트 처리기를 다음과 같이 쉽게
+                // 등록할 수 있음 / onclick 등과 같은 이벤트 처리기도 결국에는 속성이다.
+                // up.setAttribute("onclick", "clickUp(this)");
+                // down.setAttribute("onclick", "clickDown(this)");
+
+                // addEventListener() 메서드를 사용해서도 특정한 태그에 이벤트 처리기를 등록할 수 있음
+                // 우리가 지금 자바스크립트를 사용해서 태그를 새롭게 추가하고 있으므로
+                // 위에서 한 방식(setAttribute)를 사용해서 이벤트 처리기 등록은 권장하지 않음
+                up.addEventListener("click", function(){
+                    clickUp(this);
+                });
+
+                down.addEventListener("click", function(){
+                    clickDown(this);
+                });
+
+                remove.addEventListener("click", function(){
+                    clickRemove(this);
+                })
+               
+
+                up.appendChild(upText);
+                down.appendChild(downText);
+                remove.appendChild(removeText);
+
+
+                // HTML 구조로 본다면 <span> ▲ </span>
+                // HTML 구조로 본다면 <span> ▼ </span>
+                up.appendChild(upText);
+                down.appendChild(downText);
+                remove.appendChild(removeText);
+
+                var newP = document.createElement("p");
+
+                var userNameTextNode = document.createTextNode(userName);
+
+                newP.appendChild(userNameTextNode);
+                newP.appendChild(remove);
+                newP.appendChild(up);
+                newP.appendChild(down);
+                
+
+                var nameListTag = document.querySelector("#nameList");
+
+                nameListTag.appendChild(newP);
+
+                userNameTag.value = "";
+            }
+        }
+
+        // 위로 화살표를 눌렀을 때 동작하는 함수
+        function clickUp(element){
+            // element 매개변수로 현재 클릭한 span 태그가 전달되니까 이를 활용해서
+            // 현재 클릭한 태그의 부모 노드로 올라가면 p태그가 됨
+
+            // span 태그의 위치를 바꾸려는게 아닌 이름과 두 span 태그를 포함하고 있는 p 태그의 순서를 바꾸려는 것
+
+            // parentNode 멤버 변수 -> 현재 태그의 부모 태그로 접근할 수 있음
+            // element 메게변수가 span 태그를 갖고 있으니 span태그의 부모 노드에 접근하면 p 태그가 되고
+            // 그 p태그를 pNode 변수에 저장
+
+            let pNode = element.parentNode;
+
+            // 태그들의 순서를 바꾸려면 insertBefore 메서드를 사용
+            // 이미 존재하는 태그를 insertBefore의 추가 대상(첫 번째 인자)으로 지정하면
+            // 태그의 순서가 바뀜
+
+            // insertBefore 메서드로 태그를 위로 올리려면 첫 번째 인자로 이동하려는 태그(지금 up버튼을 글릭한 태그)를 넣어주고
+            // 두 번쨰 인자는 before의 기준이 되는 이동하려는 태그의 바로 위에 이는 태그를 지정해야함
+            // 그래야 inser(추가) 하는데 before(전)에 추가됨
+
+            // 이동하려는 현재 태그 보다 앞에 있는 태그를 찾기 위해
+            // 이동하려는 현재 태그의 부모 태그로 올라감 (pNode.parentNodel)
+
+            let nameListNode = pNode.parentNode;
+
+            // 아이디가 nameList인 태그의 자식 태그들에 접근 ( nameListNode.children )
+            let nameNodeList = nameListNode.children;
+
+            let beforeIndex;
+            for(let i = 0; i< nameNodeList.length; i++) {
+                let nthNameNode = nameNodeList[i];
+
+                if(nthNameNode == pNode){
+                    beforeIndex = i - 1;
+                    break;
+            } 
+        }
+        
+        if(beforeIndex != -1){
+            nameListNode.insertBefore(pNode,nameNodeList[beforeIndex]);
+        }
+    }
+
+       
+
+
+        function clickDown(element){
+
+            // 1. 실제 이동할 태그
+
+            let pNode = element.parentNode;
+            
+            // 2. 이동할 태그의 부모 태그
+
+            let nameListTag = pNode.parentNode;
+
+            // 3. before의 기준이 되는 자식 태그
+            // 부모태그.insertBefore(이동할태그, 기준이 되는 태그);
+            let afterIndex;
+
+            let nameNodeList = nameListTag.children;
+            for(let i = 0; i <nameNodeList.length; i++){
+                let nthNameNode = nameNodeList[i];
+
+                if(nthNameNode == pNode){
+                    afterIndex = i + 2;
+                }
+            }
+
+            if(afterIndex <= nameNodeList.length){
+            nameListTag.insertBefore(pNode, nameNodeList[afterIndex]);
+            }
+        }
+
+
+        // x 아이콘을 눌렀을 떄 삭제 해라
+
+        function clickRemove(element){
+
+            let pTag = element.parentNode;
+            
+            let nameListTag = pTag.parentNode;
+
+            nameListTag.removeChild(pTag);
+        }
+        
+
+    </script>
+
+
+</body>
+</html>
+

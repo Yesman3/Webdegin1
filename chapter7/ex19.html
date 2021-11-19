@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert page title</title>
+</head>
+<body>
+
+    <script>
+        let str = "Hello Thank you good luck to you";
+
+        // indexOf메서드의 인자로 문자열을 넣으면
+        // 대상 문자열 안에서 인자로 넣은 문자열을 찾아줌
+        // 문자열을 찾았으면 찾은 문자열의 시작 문자의 인덱스 번호를 알려줌
+        // 문자열을 찾지 못했으면 -1을 알려줌
+
+        // let index = str.indexOf("od");
+        // console.log("od는 str 안에서 " + index + "번 인덱스에 위치해 있음");
+        let want = "He";
+
+        let count =0;
+
+        // str의 처음부터 끝까지 하나씩 순회하는 반복문
+        for(let nth=0; nth<str.length; nth++){
+            // str의 n번 인덱스의 문자와 want의 0번 인덱스의 문자가 같은지 여부를 저장하는 변수
+            // true - 두 문자열이 일치한다.
+            // false - 두 문자열이 일치하지 않는다.
+            let isMatch = str[nth] == want[0];
+                
+
+            // str의 nth번 인덱스의 문자와 want의 0번 인덱스 문자가 같다면
+            if(isMatch){
+                // if 문 안으로 들어오면 isMatch 변수의 역할이 바뀜
+                // << if문 안으로 들어왔을 때 isMatcg변수의 역할 >>
+                // str의 nth번을 포함한 이후의 문자열과
+                // want의 문자열이 일치하는지 여부를 저장하는 변수
+                
+                for(let i=0; i<want.length; i++){
+                    let strIndex = nth + i;
+
+
+                    if(str[strIndex] != want[i]){
+                        isMatch = false;
+                        break;
+                    } // end if
+                } // end for i
+            } // end if 
+
+            if(isMatch){
+                break;
+        }
+
+        count++;
+        } // end for nth
+
+        console.log("찾고자 하는 문자열" + want + "는" + count + "번 인덱스에 들어있습니다.");
+        
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
